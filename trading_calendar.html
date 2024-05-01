@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Calendar - Eric Mule Production</title>
+    <style>
+        /* CSS styles for trading calendar page */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-image: url('background.jpg'); /* Replace 'background.jpg' with your actual background image */
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 50px 0;
+        }
+        nav {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+        }
+        .container {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            max-width: 800px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .product-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .product-list li {
+            width: 48%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .product-list li:hover {
+            transform: scale(1.05);
+        }
+        .product-list img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+            border-radius: 10px;
+            object-fit: cover; /* Ensures the image covers the entire square */
+        }
+        .product-list li:hover img {
+            transform: scale(1.1);
+        }
+        .product-list div {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .google-calendar {
+            width: 100%;
+            height: 600px; /* Adjust the height as needed */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Trading Calendar</h1>
+    </header>
+    <nav>
+        <a href="Home.html">Home</a>
+        <a href="order_form.html">Order Form</a>
+        <a href="image_gallery.html">Image Gallery</a>
+    </nav>
+    <div class="container">
+        <!-- Embedded Google Calendar -->
+        <iframe src="https://calendar.google.com/calendar/embed?src=ericmuleproduction%40gmail.com&ctz=Africa%2FMaputo" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+
+        <h2>Coming Soon - June 2023 Specials</h2>
+        <ul class="product-list">
+            <li onclick="enlargeImage('product1.jpg')">
+                <img src="product1.jpg" alt="Product 1">
+                <div>Fashion Photography</div>
+            </li>
+            <li onclick="enlargeImage('product2.jpg')">
+                <img src="product2.jpg" alt="Product 2">
+                <div>Corporate Photography</div>
+            </li>
+        </ul>
+    </div>
+    <footer>
+        &copy; 2024 Eric Mule Production | <a href="mailto:info@ericmuleproduction.com">info@ericmuleproduction.com</a>
+    </footer>
+
+    <script>
+        function enlargeImage(imageSrc) {
+            const enlargedImage = document.createElement('div');
+            enlargedImage.style.position = 'fixed';
+            enlargedImage.style.top = '0';
+            enlargedImage.style.left = '0';
+            enlargedImage.style.width = '100%';
+            enlargedImage.style.height = '100%';
+            enlargedImage.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+            enlargedImage.style.zIndex = '9999';
+            enlargedImage.style.display = 'flex';
+            enlargedImage.style.justifyContent = 'center';
+            enlargedImage.style.alignItems = 'center';
+
+            const img = document.createElement('img');
+            img.src = imageSrc;
+            img.style.maxWidth = '90%';
+            img.style.maxHeight = '90%';
+            img.style.borderRadius = '10px';
+            img.style.cursor = 'pointer';
+            img.onclick = function() {
+                enlargedImage.remove();
+            };
+
+            enlargedImage.appendChild(img);
+            document.body.appendChild(enlargedImage);
+        }
+    </script>
+</body>
+</html>

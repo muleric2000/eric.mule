@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery - Eric Mule Production</title>
+    <style>
+        /* CSS styles for image gallery page */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-image: url('background.jpg'); /* Replace 'background.jpg' with your actual background image */
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 50px 0;
+        }
+        nav {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+        }
+        .container {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            max-width: 800px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            cursor: pointer; /* Change cursor to pointer on hover */
+            transition: transform 0.3s ease; /* Smooth transition */
+        }
+
+        /* CSS animation */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        /* Apply animation delay to each image */
+        .gallery img:nth-child(1) {
+            animation-delay: 0s; /* First image appears immediately */
+        }
+        .gallery img:nth-child(2) {
+            animation-delay: 2s; /* Second image appears after 2 seconds */
+        }
+        .gallery img:nth-child(3) {
+            animation-delay: 4s; /* Third image appears after 4 seconds */
+        }
+        /* Add more nth-child selectors for additional images */
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 9999;
+            overflow: auto;
+        }
+        .lightbox img {
+            display: block;
+            margin: auto;
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Image Gallery</h1>
+    </header>
+    <nav>
+        <a href="Home.html">Home</a>
+        <a href="trading_calendar.html">Trading Calendar</a>
+        <a href="order_form.html">Order Form</a>
+    </nav>
+    <div class="container">
+        <div class="gallery">
+            <img src="image1.jpg" alt="Image 1" onclick="openLightbox('image1.jpg')">
+            <img src="image2.jpg" alt="Image 2" onclick="openLightbox('image2.jpg')">
+            <img src="image3.jpg" alt="Image 3" onclick="openLightbox('image3.jpg')">
+            <img src="image4.jpg" alt="Image 4" onclick="openLightbox('image4.jpg')">
+            <img src="image5.jpg" alt="Image 5" onclick="openLightbox('image5.jpg')">
+            <img src="image6.jpg" alt="Image 6" onclick="openLightbox('image6.jpg')">
+            <img src="image7.jpg" alt="Image 7" onclick="openLightbox('image7.jpg')">
+            <img src="image8.jpg" alt="Image 8" onclick="openLightbox('image8.jpg')">
+            <img src="image9.jpg" alt="Image 9" onclick="openLightbox('image9.jpg')">
+            <img src="image10.jpg" alt="Image 10" onclick="openLightbox('image10.jpg')">
+        </div>
+        <!-- Lightbox container -->
+        <div class="lightbox" onclick="closeLightbox()">
+            <img id="lightboxImg" src="" alt="Enlarged Image">
+        </div>
+    </div>
+    <footer>
+        &copy; 2024 Eric Mule Production | <a href="mailto:info@ericmuleproduction.com">info@ericmuleproduction.com</a>
+    </footer>
+
+    <script>
+        function openLightbox(imageSrc) {
+            document.getElementById('lightboxImg').src = imageSrc;
+            document.querySelector('.lightbox').style.display = 'block';
+        }
+
+        function closeLightbox() {
+            document.querySelector('.lightbox').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
